@@ -1,0 +1,222 @@
+[
+  {
+    "name": "run_started",
+    "payload": {
+      "run_id": "5c6237f3b7a04b138474ffa0d25128ca",
+      "query": "Explain GraphRAG and how it differs from standard RAG. Provide a short checklist to implement it."
+    }
+  },
+  {
+    "name": "supervisor_decision",
+    "payload": {
+      "route": "researcher",
+      "reason": "missing_research",
+      "iteration": 0,
+      "failures": 0
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "5c6237f3b7a04b138474ffa0d25128ca",
+      "span_id": "4025025bad2346f7968bb802e41d0fcc",
+      "name": "supervisor",
+      "started_at": "2026-05-06T08:20:35.806825+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "iteration": 0,
+        "route_history_len": 0,
+        "next_route": "researcher",
+        "usage_delta": {
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "researcher_search",
+    "payload": {
+      "num_sources": 5,
+      "max_sources": 5
+    }
+  },
+  {
+    "name": "researcher_notes",
+    "payload": {
+      "input_tokens": 353,
+      "output_tokens": 380,
+      "model": "gpt-4o-mini"
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "5c6237f3b7a04b138474ffa0d25128ca",
+      "span_id": "a2ff5ff013b0422984a15acfb748308b",
+      "name": "researcher",
+      "started_at": "2026-05-06T08:20:35.807771+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "query": "Explain GraphRAG and how it differs from standard RAG. Provide a short checklist to implement it.",
+        "max_sources": 5,
+        "num_sources": 5,
+        "research_notes_len": 2025,
+        "usage_delta": {
+          "input_tokens": 353,
+          "output_tokens": 380
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "supervisor_decision",
+    "payload": {
+      "route": "analyst",
+      "reason": "missing_analysis",
+      "iteration": 1,
+      "failures": 0
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "5c6237f3b7a04b138474ffa0d25128ca",
+      "span_id": "9aeb78aed775409ea3e9240107791046",
+      "name": "supervisor",
+      "started_at": "2026-05-06T08:20:43.573991+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "iteration": 1,
+        "route_history_len": 1,
+        "next_route": "analyst",
+        "usage_delta": {
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "analyst_notes",
+    "payload": {
+      "input_tokens": 511,
+      "output_tokens": 628,
+      "model": "gpt-4o-mini"
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "5c6237f3b7a04b138474ffa0d25128ca",
+      "span_id": "5c25344ea32d40b68224d236c18b3a3c",
+      "name": "analyst",
+      "started_at": "2026-05-06T08:20:43.575078+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "research_notes_len": 2025,
+        "analysis_notes_len": 3608,
+        "usage_delta": {
+          "input_tokens": 511,
+          "output_tokens": 628
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "supervisor_decision",
+    "payload": {
+      "route": "writer",
+      "reason": "ready_to_write",
+      "iteration": 2,
+      "failures": 0
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "5c6237f3b7a04b138474ffa0d25128ca",
+      "span_id": "4408b6cd448742799cd0b08824940032",
+      "name": "supervisor",
+      "started_at": "2026-05-06T08:20:55.539969+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "iteration": 2,
+        "route_history_len": 2,
+        "next_route": "writer",
+        "usage_delta": {
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "writer_final",
+    "payload": {
+      "input_tokens": 1241,
+      "output_tokens": 500,
+      "model": "gpt-4o-mini"
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "5c6237f3b7a04b138474ffa0d25128ca",
+      "span_id": "98ea6070a391486eb44cbdd659d4b273",
+      "name": "writer",
+      "started_at": "2026-05-06T08:20:55.542847+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "sources": 5,
+        "research_notes_len": 2025,
+        "analysis_notes_len": 3608,
+        "final_answer_len": 2856,
+        "usage_delta": {
+          "input_tokens": 1241,
+          "output_tokens": 500
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "supervisor_decision",
+    "payload": {
+      "route": "done",
+      "reason": "final_answer_present"
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "5c6237f3b7a04b138474ffa0d25128ca",
+      "span_id": "ba2e77538dc04a8bb5af682ac08785c5",
+      "name": "supervisor",
+      "started_at": "2026-05-06T08:21:07.519032+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "iteration": 3,
+        "route_history_len": 3,
+        "next_route": "done",
+        "usage_delta": {
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  }
+]

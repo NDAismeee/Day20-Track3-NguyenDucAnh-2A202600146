@@ -1,0 +1,222 @@
+[
+  {
+    "name": "run_started",
+    "payload": {
+      "run_id": "471dbd63f17d411c8099d7378dac2e9a",
+      "query": "Summarize LangGraph core concepts and when a multi-agent workflow is justified vs a single agent."
+    }
+  },
+  {
+    "name": "supervisor_decision",
+    "payload": {
+      "route": "researcher",
+      "reason": "missing_research",
+      "iteration": 0,
+      "failures": 0
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "471dbd63f17d411c8099d7378dac2e9a",
+      "span_id": "f795f3330ce04e3e8af5811ea8ba1f76",
+      "name": "supervisor",
+      "started_at": "2026-05-06T08:21:16.008235+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "iteration": 0,
+        "route_history_len": 0,
+        "next_route": "researcher",
+        "usage_delta": {
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "researcher_search",
+    "payload": {
+      "num_sources": 5,
+      "max_sources": 5
+    }
+  },
+  {
+    "name": "researcher_notes",
+    "payload": {
+      "input_tokens": 352,
+      "output_tokens": 376,
+      "model": "gpt-4o-mini"
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "471dbd63f17d411c8099d7378dac2e9a",
+      "span_id": "0f1c95b173dd43c3997dc97b0a08844e",
+      "name": "researcher",
+      "started_at": "2026-05-06T08:21:16.010983+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "query": "Summarize LangGraph core concepts and when a multi-agent workflow is justified vs a single agent.",
+        "max_sources": 5,
+        "num_sources": 5,
+        "research_notes_len": 2138,
+        "usage_delta": {
+          "input_tokens": 352,
+          "output_tokens": 376
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "supervisor_decision",
+    "payload": {
+      "route": "analyst",
+      "reason": "missing_analysis",
+      "iteration": 1,
+      "failures": 0
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "471dbd63f17d411c8099d7378dac2e9a",
+      "span_id": "8c809cfce4004927a25bdeec40b2ea92",
+      "name": "supervisor",
+      "started_at": "2026-05-06T08:21:25.708329+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "iteration": 1,
+        "route_history_len": 1,
+        "next_route": "analyst",
+        "usage_delta": {
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "analyst_notes",
+    "payload": {
+      "input_tokens": 506,
+      "output_tokens": 622,
+      "model": "gpt-4o-mini"
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "471dbd63f17d411c8099d7378dac2e9a",
+      "span_id": "2ad89792ce6e4bddaa2f13a8da04c293",
+      "name": "analyst",
+      "started_at": "2026-05-06T08:21:25.710661+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "research_notes_len": 2138,
+        "analysis_notes_len": 3521,
+        "usage_delta": {
+          "input_tokens": 506,
+          "output_tokens": 622
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "supervisor_decision",
+    "payload": {
+      "route": "writer",
+      "reason": "ready_to_write",
+      "iteration": 2,
+      "failures": 0
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "471dbd63f17d411c8099d7378dac2e9a",
+      "span_id": "ff54498b3cdf461f9c56d4c28c563788",
+      "name": "supervisor",
+      "started_at": "2026-05-06T08:21:38.592083+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "iteration": 2,
+        "route_history_len": 2,
+        "next_route": "writer",
+        "usage_delta": {
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "writer_final",
+    "payload": {
+      "input_tokens": 1230,
+      "output_tokens": 456,
+      "model": "gpt-4o-mini"
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "471dbd63f17d411c8099d7378dac2e9a",
+      "span_id": "c9b0f070f8bd4591b393a6eb9a866333",
+      "name": "writer",
+      "started_at": "2026-05-06T08:21:38.595161+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "sources": 5,
+        "research_notes_len": 2138,
+        "analysis_notes_len": 3521,
+        "final_answer_len": 2534,
+        "usage_delta": {
+          "input_tokens": 1230,
+          "output_tokens": 456
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "supervisor_decision",
+    "payload": {
+      "route": "done",
+      "reason": "final_answer_present"
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "471dbd63f17d411c8099d7378dac2e9a",
+      "span_id": "b71277f5df344425919597453a965adc",
+      "name": "supervisor",
+      "started_at": "2026-05-06T08:21:52.279811+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "iteration": 3,
+        "route_history_len": 3,
+        "next_route": "done",
+        "usage_delta": {
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  }
+]

@@ -9,9 +9,20 @@ def render_markdown_report(metrics: list[BenchmarkMetrics]) -> str:
     TODO(student): Add richer analysis, examples, screenshots, and trace links.
     """
 
-    lines = ["# Benchmark Report", "", "| Run | Latency (s) | Cost (USD) | Quality | Notes |", "|---|---:|---:|---:|---|"]
+    lines = [
+        "# Benchmark Report",
+        "",
+        "| Run | Latency (s) | Tokens (in/out) | Citation coverage | Success | Notes |",
+        "|---|---:|---:|---:|---:|---|",
+    ]
     for item in metrics:
-        cost = "" if item.estimated_cost_usd is None else f"{item.estimated_cost_usd:.4f}"
-        quality = "" if item.quality_score is None else f"{item.quality_score:.1f}"
-        lines.append(f"| {item.run_name} | {item.latency_seconds:.2f} | {cost} | {quality} | {item.notes} |")
+        tokens = ""
+        if item.input_tokens is not None or item.output_tokens is not None:
+            tokens = f"{item.input_tokens or 0}/{item.output_tokens or 0}"
+        coverage = "" if item.citation_coverage is None else f"{item.citation_coverage:.2f}"
+        success = "1" if item.success else "0"
+        note = item.notes
+        if item.error:
+            note = (note + " | " if note else "") + f"error={item.error}"
+        lines.append(f"| {item.run_name} | {item.latency_seconds:.2f} | {tokens} | {coverage} | {success} | {note} |")
     return "\n".join(lines) + "\n"

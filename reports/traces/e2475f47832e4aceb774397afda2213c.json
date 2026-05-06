@@ -1,0 +1,222 @@
+[
+  {
+    "name": "run_started",
+    "payload": {
+      "run_id": "e2475f47832e4aceb774397afda2213c",
+      "query": "List 5 common failure modes in multi-agent systems and propose guardrails to mitigate each."
+    }
+  },
+  {
+    "name": "supervisor_decision",
+    "payload": {
+      "route": "researcher",
+      "reason": "missing_research",
+      "iteration": 0,
+      "failures": 0
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "e2475f47832e4aceb774397afda2213c",
+      "span_id": "c79e6b3f8f504cbda89f99111d3b2fdf",
+      "name": "supervisor",
+      "started_at": "2026-05-06T08:22:00.467199+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "iteration": 0,
+        "route_history_len": 0,
+        "next_route": "researcher",
+        "usage_delta": {
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "researcher_search",
+    "payload": {
+      "num_sources": 5,
+      "max_sources": 5
+    }
+  },
+  {
+    "name": "researcher_notes",
+    "payload": {
+      "input_tokens": 350,
+      "output_tokens": 402,
+      "model": "gpt-4o-mini"
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "e2475f47832e4aceb774397afda2213c",
+      "span_id": "f277dfb739024462856b0d6565f22df9",
+      "name": "researcher",
+      "started_at": "2026-05-06T08:22:00.469171+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "query": "List 5 common failure modes in multi-agent systems and propose guardrails to mitigate each.",
+        "max_sources": 5,
+        "num_sources": 5,
+        "research_notes_len": 2366,
+        "usage_delta": {
+          "input_tokens": 350,
+          "output_tokens": 402
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "supervisor_decision",
+    "payload": {
+      "route": "analyst",
+      "reason": "missing_analysis",
+      "iteration": 1,
+      "failures": 0
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "e2475f47832e4aceb774397afda2213c",
+      "span_id": "7414088097a847ef969d6afff70ca7ad",
+      "name": "supervisor",
+      "started_at": "2026-05-06T08:22:07.257009+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "iteration": 1,
+        "route_history_len": 1,
+        "next_route": "analyst",
+        "usage_delta": {
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "analyst_notes",
+    "payload": {
+      "input_tokens": 530,
+      "output_tokens": 671,
+      "model": "gpt-4o-mini"
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "e2475f47832e4aceb774397afda2213c",
+      "span_id": "e3a885e79ce5456dae58f15911029782",
+      "name": "analyst",
+      "started_at": "2026-05-06T08:22:07.259806+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "research_notes_len": 2366,
+        "analysis_notes_len": 4082,
+        "usage_delta": {
+          "input_tokens": 530,
+          "output_tokens": 671
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "supervisor_decision",
+    "payload": {
+      "route": "writer",
+      "reason": "ready_to_write",
+      "iteration": 2,
+      "failures": 0
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "e2475f47832e4aceb774397afda2213c",
+      "span_id": "b7e9497c602149dd80733811f5297808",
+      "name": "supervisor",
+      "started_at": "2026-05-06T08:22:19.258840+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "iteration": 2,
+        "route_history_len": 2,
+        "next_route": "writer",
+        "usage_delta": {
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "writer_final",
+    "payload": {
+      "input_tokens": 1303,
+      "output_tokens": 639,
+      "model": "gpt-4o-mini"
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "e2475f47832e4aceb774397afda2213c",
+      "span_id": "f6c1dd700fb54f8e959762e79862d68c",
+      "name": "writer",
+      "started_at": "2026-05-06T08:22:19.261389+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "sources": 5,
+        "research_notes_len": 2366,
+        "analysis_notes_len": 4082,
+        "final_answer_len": 3575,
+        "usage_delta": {
+          "input_tokens": 1303,
+          "output_tokens": 639
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  },
+  {
+    "name": "supervisor_decision",
+    "payload": {
+      "route": "done",
+      "reason": "final_answer_present"
+    }
+  },
+  {
+    "name": "span",
+    "payload": {
+      "run_id": "e2475f47832e4aceb774397afda2213c",
+      "span_id": "d4239e504b734514973f7465c1e7094a",
+      "name": "supervisor",
+      "started_at": "2026-05-06T08:22:30.778603+00:00",
+      "duration_seconds": null,
+      "attributes": {
+        "iteration": 3,
+        "route_history_len": 3,
+        "next_route": "done",
+        "usage_delta": {
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      },
+      "status": "ok",
+      "error": null
+    }
+  }
+]

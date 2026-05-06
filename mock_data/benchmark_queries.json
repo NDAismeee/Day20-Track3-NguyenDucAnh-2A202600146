@@ -1,0 +1,15 @@
+[
+  {
+    "id": "q1_graphrag",
+    "query": "Explain GraphRAG and how it differs from standard RAG. Provide a short checklist to implement it."
+  },
+  {
+    "id": "q2_langgraph",
+    "query": "Summarize LangGraph core concepts and when a multi-agent workflow is justified vs a single agent."
+  },
+  {
+    "id": "q3_failure_modes",
+    "query": "List 5 common failure modes in multi-agent systems and propose guardrails to mitigate each."
+  }
+]
+

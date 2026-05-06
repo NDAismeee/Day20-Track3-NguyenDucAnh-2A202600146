@@ -12,6 +12,8 @@ from multi_agent_research_lab.core.schemas import ResearchQuery
 from multi_agent_research_lab.core.state import ResearchState
 from multi_agent_research_lab.graph.workflow import MultiAgentWorkflow
 from multi_agent_research_lab.observability.logging import configure_logging
+from multi_agent_research_lab.services.llm_client import LLMClient
+from multi_agent_research_lab.utils.timer import elapsed_timer
 
 app = typer.Typer(help="Multi-Agent Research Lab starter CLI")
 console = Console()
@@ -29,13 +31,40 @@ def baseline(
     """Run a minimal single-agent baseline placeholder."""
 
     _init()
+    settings = get_settings()
     request = ResearchQuery(query=query)
     state = ResearchState(request=request)
-    state.final_answer = (
-        "Baseline skeleton response. TODO(student): replace this with a real single-agent "
-        "implementation and record latency/cost/quality metrics."
+
+    llm = LLMClient(
+        api_key=settings.openai_api_key,
+        model=settings.openai_model,
+        timeout_seconds=settings.timeout_seconds,
     )
-    console.print(Panel.fit(state.final_answer, title="Single-Agent Baseline"))
+    system_prompt = (
+        "You are a careful research assistant. Be concise, structured, and avoid fabrication. "
+        "If the question is ambiguous, state assumptions."
+    )
+    with elapsed_timer() as elapsed:
+        resp = llm.complete(system_prompt=system_prompt, user_prompt=state.request.query)
+
+    state.set_final_answer(resp.content)
+    state.add_usage(input_tokens=resp.input_tokens, output_tokens=resp.output_tokens, cost_usd=resp.cost_usd)
+    state.add_trace_event(
+        "baseline_llm_complete",
+        {
+            "latency_seconds": elapsed(),
+            "input_tokens": resp.input_tokens,
+            "output_tokens": resp.output_tokens,
+            "model": settings.openai_model,
+        },
+    )
+
+    metrics_line = (
+        f"\n\n[dim]latency={elapsed():.2f}s"
+        f" input_tokens={resp.input_tokens} output_tokens={resp.output_tokens}"
+        f" model={settings.openai_model}[/dim]"
+    )
+    console.print(Panel.fit(f"{state.final_answer}{metrics_line}", title="Single-Agent Baseline"))
 
 
 @app.command("multi-agent")

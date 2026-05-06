@@ -1,0 +1,28 @@
+[
+  {
+    "title": "LangGraph Concepts",
+    "url": "https://langchain-ai.github.io/langgraph/concepts/",
+    "snippet": "LangGraph is a framework for building stateful, multi-actor applications with LLMs. It provides graphs with nodes, edges, state, and control flow for complex agent workflows."
+  },
+  {
+    "title": "Anthropic: Building effective agents",
+    "url": "https://www.anthropic.com/engineering/building-effective-agents",
+    "snippet": "Guidance on designing effective AI agents: decomposition, tool use, planning, reflection, guardrails, evaluations, and failure modes."
+  },
+  {
+    "title": "OpenAI: Agents orchestration and handoffs",
+    "url": "https://developers.openai.com/api/docs/guides/agents/orchestration",
+    "snippet": "Overview of orchestrating multiple agents and implementing handoffs. Discusses routing, tool calls, structured state, and managing cost/latency."
+  },
+  {
+    "title": "RAG overview (general)",
+    "url": null,
+    "snippet": "Retrieval-Augmented Generation combines retrieval from external documents with generative models to ground responses, improve factuality, and provide citations."
+  },
+  {
+    "title": "GraphRAG overview (general)",
+    "url": null,
+    "snippet": "GraphRAG extends RAG by organizing knowledge as graphs of entities and relations, enabling retrieval that leverages neighborhoods, paths, and structured context."
+  }
+]
+
